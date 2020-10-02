@@ -249,7 +249,7 @@ public class NextLevel: NSObject {
     #if USE_TRUE_DEPTH
     public weak var depthDataDelegate: NextLevelDepthDataDelegate?
     #endif
-    public weak var portraitEffectsMatteDelegate: NextLevelPortraitEffectsMatteDelegate?
+//    public weak var portraitEffectsMatteDelegate: NextLevelPortraitEffectsMatteDelegate?
     public weak var metadataObjectsDelegate: NextLevelMetadataOutputObjectsDelegate?
 
     // preview
@@ -1156,10 +1156,10 @@ extension NextLevel {
         }
         
         // enables portrait effects matte
-        if photoOutput.isPortraitEffectsMatteDeliverySupported {
-            photoOutput.isPortraitEffectsMatteDeliveryEnabled = true
-            return true
-        }
+//        if photoOutput.isPortraitEffectsMatteDeliverySupported {
+//            photoOutput.isPortraitEffectsMatteDeliveryEnabled = true
+//            return true
+//        }
         print("NextLevel, couldn't enable portrait effects matte delivery in the output")
         return false
     }
@@ -2211,8 +2211,8 @@ extension NextLevel {
         get {
             var deviceTypes: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera,
                                                              .builtInTelephotoCamera,
-                                                             .builtInDualCamera,
-                                                             .builtInTrueDepthCamera]
+                                                             .builtInDualCamera/*,
+                                                             .builtInTrueDepthCamera*/]
             if #available(iOS 13.0, *) {
                 deviceTypes.append(contentsOf: [.builtInUltraWideCamera, .builtInDualWideCamera, .builtInTripleCamera])
             }
@@ -2480,9 +2480,9 @@ extension NextLevel {
             }
             #endif
             
-            if photoOutput.isPortraitEffectsMatteDeliverySupported {
-                photoOutput.isPortraitEffectsMatteDeliveryEnabled = self.photoConfiguration.isPortraitEffectsMatteEnabled
-            }
+//            if photoOutput.isPortraitEffectsMatteDeliverySupported {
+//                photoOutput.isPortraitEffectsMatteDeliveryEnabled = self.photoConfiguration.isPortraitEffectsMatteEnabled
+//            }
             
             if self.isFlashAvailable {
                 photoSettings.flashMode = self.photoConfiguration.flashMode
@@ -2789,11 +2789,11 @@ extension NextLevel: AVCapturePhotoCaptureDelegate {
             self.photoDelegate?.nextLevel(self, didFinishProcessingPhoto: photo, photoDict: photoDict, photoConfiguration: self.photoConfiguration)
         }
                 
-        if let portraitEffectsMatte = photo.portraitEffectsMatte {
-            DispatchQueue.main.async {
-                self.portraitEffectsMatteDelegate?.portraitEffectsMatteOutput(self, didOutput: portraitEffectsMatte)
-            }
-        }
+//        if let portraitEffectsMatte = photo.portraitEffectsMatte {
+//            DispatchQueue.main.async {
+//                self.portraitEffectsMatteDelegate?.portraitEffectsMatteOutput(self, didOutput: portraitEffectsMatte)
+//            }
+//        }
     }
 
     

@@ -191,10 +191,10 @@ public protocol NextLevelDepthDataDelegate: AnyObject {
 
 // MARK: - NextLevelPortraitEffectsMatteDelegate
 
-/// Portrait Effects Matte delegate, provides portrait effects matte updates
-public protocol NextLevelPortraitEffectsMatteDelegate: AnyObject {
-    func portraitEffectsMatteOutput(_ nextLevel: NextLevel, didOutput portraitEffectsMatte: AVPortraitEffectsMatte)
-}
+///// Portrait Effects Matte delegate, provides portrait effects matte updates
+//public protocol NextLevelPortraitEffectsMatteDelegate: AnyObject {
+//    func portraitEffectsMatteOutput(_ nextLevel: NextLevel, didOutput portraitEffectsMatte: AVPortraitEffectsMatte)
+//}
 
 // MARK: - NextLevelMetadataOutputObjectsDelegate
 
